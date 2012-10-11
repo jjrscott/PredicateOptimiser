@@ -16,6 +16,14 @@ POPredicateOptimiser
 - `POPredicateOptimisationTypeNone` The optimiser will simply return a copy of the `NSPredicate` object.
 - `POPredicateOptimisationTypeBest` The optimiser will do its best to optimise the `NSPredicate` object.
 
+For example:
+
+| Before | After |
+|-------|-------|
+| `not (a > b)`   | `a <= b`   |
+| `... OR TRUEPREDICATE OR ...` | `TRUEPREDICATE` |
+| `... AND FALSEPREDICATE AND ...` | `FALSEPREDICATE` |
+
 POPredicateFormatter
 --------------------
 
@@ -25,6 +33,12 @@ POPredicateFormatter
 
 - `POPredicateDisplayTypeString` The formatter will simply return the result of calling `description` on the `NSPredicate` object.
 - `POPredicateDisplayTypeCocoa` The formatter will return an `NSString` containing the code neccessary to reproduce the `NSPredicate` object in code.
+
+For example, `string contains[cd] 'Foo'` would produce:
+
+```objectivec
+[NSComparisonPredicate predicateWithLeftExpression:[NSExpression expressionWithFormat:@"string" /* NSKeyPathExpression */rightExpression:[NSExpression expressionWithFormat:@""Foo"" /* NSConstantValueExpression */ modifier:NSDirectPredicateModifier type:NSContainsPredicateOperatorType options:NSCaseInsensitivePredicateOption | NSDiacriticInsensitivePredicateOption]
+```
 
 License
 -------
