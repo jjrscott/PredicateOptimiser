@@ -10,8 +10,8 @@
 
 typedef enum
 {
-  POPredicateOptimisationTypeNone,
-  POPredicateOptimisationTypeBest
+    POPredicateOptimisationTypeNone,
+    POPredicateOptimisationTypeBest
 } POPredicateOptimisationType;
 
 @interface POPredicateOptimiser : NSObject

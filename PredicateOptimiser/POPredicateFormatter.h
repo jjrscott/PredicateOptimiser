@@ -10,8 +10,8 @@
 
 typedef enum
 {
-  POPredicateDisplayTypeString,
-  POPredicateDisplayTypeCocoa
+    POPredicateDisplayTypeString,
+    POPredicateDisplayTypeCocoa
 } POPredicateDisplayType;
 
 @interface POPredicateFormatter : NSObject
